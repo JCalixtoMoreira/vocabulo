@@ -8,7 +8,7 @@ const palavraSchema = new mongoose.Schema({
   tamanho: {
       required: true,
       type: Number
-  }
+  } 
 })
 
 const Palavra = mongoose.model("Palavra", palavraSchema);
