@@ -15,6 +15,6 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 app.use(palavraRouter);
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log("Server is running...");
 });
