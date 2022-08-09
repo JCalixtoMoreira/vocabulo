@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const palavraRouter = require("./routes/palavraRoutes.js");
 
 const app = express();
+const port = 3001
 
 app.use(express.json());
 
@@ -15,6 +16,6 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 app.use(palavraRouter);
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || port, () => {
     console.log("Server is running...");
 });
