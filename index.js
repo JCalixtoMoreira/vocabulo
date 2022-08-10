@@ -24,6 +24,6 @@ app.listen(process.env.PORT || port, () => {
 
 //ping para que o server nao entre em idling
 setInterval(function() {
-    axios.get(url);
+    await axios.get(url);
     console.log("pingado");
 }, 600000);
