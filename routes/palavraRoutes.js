@@ -4,7 +4,7 @@ const app = express();
 
 app.get("/", async (request, response) => {
     try {
-        response.send("ping");
+        response.send("pagina inicial");
     } catch (error) {
         response.status(500).send(error);
     }
