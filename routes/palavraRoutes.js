@@ -2,6 +2,14 @@ const express = require("express");
 const palavraModel = require("../models/palavra");
 const app = express();
 
+app.get("/", async (request, response) => {
+    try {
+        response.send("ping");
+    } catch (error) {
+        response.status(500).send(error);
+    }
+});
+
 app.get("/palavras/:tamanho/:quantidade", async (request, response) => {
     try {
         const maxTamanho = 20;
@@ -18,7 +26,7 @@ app.get("/palavras/:tamanho/:quantidade", async (request, response) => {
 
 app.get("/palavras/:conteudo", async (request, response) => {
     try {
-        const palavra = await palavraModel.findOne({ conteudo: request.params.conteudo });
+        const palavra = await palavraModel.findOne({ conteudo: new RegExp('^' +request.params.conteudo + '$', 'i') });
         response.send(!!palavra);
     } catch (error) {
         response.status(500).send(error);
